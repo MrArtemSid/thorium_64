@@ -181,6 +181,11 @@ on boot
    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
    chmod 0660 /dev/cpuset/camera-daemon/tasks
 
+# access permissions for FPC service
+   chown system system /sys/bus/platform/devices/soc/soc:fpc1020/irq
+   chown system system /sys/bus/platform/devices/soc/soc:fpc1020/wakeup_enable
+   chmod 0666 /dev/qseecom
+
 ####Regionalization config and prop files####
     chmod 0644 /persist/speccfg/spec
     chmod 0644 /persist/speccfg/devicetype
