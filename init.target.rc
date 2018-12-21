@@ -208,6 +208,8 @@ on boot
     chown system system /mnt/vendor/persist/WCNSS_qcom_wlan_nv.bin
 
 #USB controller configuration
+    write /sys/module/g_android/parameters/mtp_tx_req_len 131072
+    write /sys/module/g_android/parameters/mtp_rx_req_len 131072
     setprop vendor.usb.rndis.func.name "rndis"
     setprop vendor.usb.rmnet.func.name "rmnet_bam"
     setprop vendor.usb.rmnet.inst.name "rmnet_bam_dmux"
@@ -290,12 +292,17 @@ on charger
     wait /dev/block/bootdevice/by-name/system
     mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
     load_all_props
-    setprop sys.usb.configfs 0
     setprop persist.sys.usb.config mass_storage
     start qcom-post-boot
     setprop persist.sys.usb.config mass_storage
     start vendor.hvdcp_opti
     start vendor.vm_bms
+
+on charger && property:ro.boot.usbconfigfs=true
+    setprop sys.usb.configfs 1
+
+on charger && property:ro.boot.usbconfigfs=false
+    setprop sys.usb.configfs 0
 
 service hbtp /system/vendor/bin/hbtp_daemon
     class main
