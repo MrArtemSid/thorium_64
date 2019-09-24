@@ -100,6 +100,12 @@ PRODUCT_BOOT_JARS += WfdCommon
 endif
 
 DEVICE_MANIFEST_FILE := device/qcom/msm8937_64/manifest.xml
+ifeq ($(strip $(TARGET_KERNEL_VERSION)), 3.18)
+    DEVICE_MANIFEST_FILE += device/qcom/msm8937_64/manifest_target_level_2.xml
+endif
+ifeq ($(TARGET_KERNEL_VERSION), 4.9)
+    DEVICE_MANIFEST_FILE += device/qcom/msm8937_64/manifest_target_level_3.xml
+endif
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/msm8937_64/framework_manifest.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
@@ -371,4 +377,6 @@ ifeq ($(strip $(TARGET_KERNEL_VERSION)), 3.18)
     # Enable extra vendor libs
     ENABLE_EXTRA_VENDOR_LIBS := true
     PRODUCT_PACKAGES += vendor-extra-libs
+    TARGET_USES_MKE2FS := true
+    $(call inherit-product, build/make/target/product/product_launched_with_o_mr1.mk)
 endif
