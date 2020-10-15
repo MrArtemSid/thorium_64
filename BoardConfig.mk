@@ -138,6 +138,8 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.
 ifeq ($(strip $(TARGET_KERNEL_VERSION)), 4.9)
      BOARD_KERNEL_CMDLINE += androidboot.usbconfigfs=true
 endif
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+
 #BOARD_KERNEL_SEPARATED_DT := true
 
 BOARD_SECCOMP_POLICY := device/qcom/msm8937_32/seccomp
