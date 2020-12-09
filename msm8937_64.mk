@@ -30,7 +30,7 @@ ifeq ($(ENABLE_VENDOR_IMAGE), true)
 endif
 
 
-TARGET_USES_NQ_NFC := true
+TARGET_USES_NQ_NFC := false
 
 ENABLE_AB ?= false
 
