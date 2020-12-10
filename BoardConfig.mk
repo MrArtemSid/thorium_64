@@ -255,3 +255,5 @@ endif
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := santoni
+
+-include $(LOCAL_PATH)/blobs/santoni/BoardConfigVendor.mk
