@@ -66,6 +66,7 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_msm
 # Enable System As Root even for non-A/B from P onwards
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
+TARGET_NO_RECOVERY := true
 endif
 
 ifeq ($(strip $(TARGET_KERNEL_VERSION)), 4.9)
