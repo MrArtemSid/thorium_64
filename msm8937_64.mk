@@ -1,12 +1,12 @@
 ALLOW_MISSING_DEPENDENCIES=true
 # Enable AVB 2.0
 ifneq ($(wildcard kernel/msm-4.9),)
-BOARD_AVB_ENABLE := true
+BOARD_AVB_ENABLE := false
 # Enable chain partition for system, to facilitate system-only OTA in Treble.
-BOARD_AVB_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
-BOARD_AVB_SYSTEM_ALGORITHM := SHA256_RSA2048
-BOARD_AVB_SYSTEM_ROLLBACK_INDEX := 0
-BOARD_AVB_SYSTEM_ROLLBACK_INDEX_LOCATION := 2
+#BOARD_AVB_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
+#BOARD_AVB_SYSTEM_ALGORITHM := SHA256_RSA2048
+#BOARD_AVB_SYSTEM_ROLLBACK_INDEX := 0
+#BOARD_AVB_SYSTEM_ROLLBACK_INDEX_LOCATION := 2
 endif
 
 TARGET_USES_AOSP := false
@@ -174,8 +174,8 @@ PRODUCT_COPY_FILES += \
     device/qcom/msm8937_64/init.qti.qseecomd.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.qseecomd.sh
 
 # VB xml
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.verified_boot.xml:system/etc/permissions/android.software.verified_boot.xml
+#PRODUCT_COPY_FILES += \
+#    frameworks/native/data/etc/android.software.verified_boot.xml:system/etc/permissions/android.software.verified_boot.xml
 
 # MSM IRQ Balancer configuration file
 PRODUCT_COPY_FILES += \
@@ -323,7 +323,7 @@ endif
 # below definitions are only required for AVB 1.0
 ifeq ($(BOARD_AVB_ENABLE),false)
 # dm-verity definitions
-  PRODUCT_SUPPORTS_VERITY := true
+  PRODUCT_SUPPORTS_VERITY := false
 endif
 
 ifeq ($(strip $(TARGET_KERNEL_VERSION)), 4.9)
