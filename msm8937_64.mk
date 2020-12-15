@@ -403,6 +403,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/mixer_paths_mtp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp.xml \
     $(LOCAL_PATH)/audio/mixer_paths_qrd_sku1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_qrd_sku1.xml
 
+$(call inherit-product, $(LOCAL_PATH)/blobs/santoni/santoni-vendor.mk)
 ###################################################################################
 # This is the End of target.mk file.
 # Now, Pickup other split product.mk files:
