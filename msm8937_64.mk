@@ -445,6 +445,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf
 
+$(call inherit-product, $(LOCAL_PATH)/blobs/santoni/santoni-vendor.mk)
 ###################################################################################
 # This is the End of target.mk file.
 # Now, Pickup other split product.mk files:

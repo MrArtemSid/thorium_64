@@ -307,6 +307,7 @@ endif
 BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 endif
 
+-include $(LOCAL_PATH)/blobs/santoni/BoardConfigVendor.mk
 #################################################################################
 # This is the End of BoardConfig.mk file.
 # Now, Pickup other split Board.mk files:
