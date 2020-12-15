@@ -454,6 +454,10 @@ PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl \
     android.hardware.ir@1.0-service
 
+# Init
+PRODUCT_PACKAGES += \
+    init.santoni.rc
+
 $(call inherit-product, $(LOCAL_PATH)/blobs/santoni/santoni-vendor.mk)
 ###################################################################################
 # This is the End of target.mk file.
