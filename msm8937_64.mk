@@ -413,6 +413,7 @@ PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-service
 
 $(call inherit-product, $(LOCAL_PATH)/blobs/santoni/santoni-vendor.mk)
+$(call inherit-product, $(LOCAL_PATH)/blobs/tissot_ril/tissot_ril.mk)
 ###################################################################################
 # This is the End of target.mk file.
 # Now, Pickup other split product.mk files:

@@ -287,6 +287,7 @@ ifneq ($(TARGET_USES_AOSP),true)
 endif
 
 FEATURE_QCRIL_UIM_SAP_SERVER_MODE := true
+DISABLE_RILD_OEM_HOOK := true
 
 ifeq ($(strip $(TARGET_KERNEL_VERSION)), 4.9)
 PMIC_QG_SUPPORT := true
@@ -308,6 +309,7 @@ BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 endif
 
 -include $(LOCAL_PATH)/blobs/santoni/BoardConfigVendor.mk
+-include $(LOCAL_PATH)/blobs/tissot_ril/BoardConfigVendor.mk
 #################################################################################
 # This is the End of BoardConfig.mk file.
 # Now, Pickup other split Board.mk files:
